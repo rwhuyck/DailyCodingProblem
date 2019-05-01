@@ -19,20 +19,31 @@ namespace DailyCodingProblem_01
 
             int[] input = { 10, 15, 3, 7 };
             int k = 17;
-            int[] sums = new int[input.Length];
+            //int[] sums = new int[input.Length];
             bool isSum = false;
 
-            for (int i = 0; i < sums.Length; i++)
+            //First try
+            //for (int i = 0; i < sums.Length; i++)
+            //{
+            //    for (int j = 0; j < input.Length; j++)
+            //    {
+            //        sums[i] = input[i] + input[j];
+
+            //        if (sums[i] == k)
+            //        {
+            //            isSum = true;
+            //            break;
+            //        }
+            //    }
+            //}
+
+            //Second try
+            for (int i = 0; i < input.Length; i++)
             {
-                for (int j = 0; j < input.Length; j++)
+                int component = k - input[i];
+                if (Array.IndexOf(input, component) != -1)
                 {
-                    sums[i] = input[i] + input[j];
-                    
-                    if (sums[i] == k)
-                    {
-                        isSum = true;
-                        break;
-                    }
+                    isSum = true;
                 }
             }
 
