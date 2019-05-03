@@ -11,8 +11,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DailyCodingProblem-03", "Da
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DailyCodingProblem-04", "DailyCodingProblem-04\DailyCodingProblem-04.csproj", "{7E010AD6-0024-4854-A067-65A081701250}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DailyCodingProblem-03", "DailyCodingProblem-03\DailyCodingProblem-03.csproj", "{DEC75A56-17EE-4E65-9ECB-37EAB397987F}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
