@@ -38,7 +38,7 @@ namespace DailyCodingProblem_03
         //Breadth-first traversal using a queue to reconstruct sentence 
         //by serializing the tree.
         //Implimentation based on https://jamesmccaffrey.wordpress.com/2011/10/22/breadth-first-and-depth-first-traversal-of-a-c-binary-search-tree/
-        internal string serialize()
+        internal string Serialize()
         {
             string result = "";
             Queue<BinaryTree> queue = new Queue<BinaryTree>();
