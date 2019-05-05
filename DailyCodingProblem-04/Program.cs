@@ -25,7 +25,7 @@ namespace DailyCodingProblem_04
             //int[] input = {}; //Or [0, 0, 0, 0]. returns 1
             //int[] input = { 1, 2, 3, 4, 5, 6, 7 }; //returns 8
             //int[] input = { 5, 5, -3, -1, 0, 0, 4, 1, 2, 1, 2, 1, 2 }; //returns 3
-            int result = findInteger(input);
+            int result = FindInteger(input);
 
             Console.WriteLine(result);
             Console.ReadLine();
@@ -33,7 +33,7 @@ namespace DailyCodingProblem_04
 
         //Sort array to be ascending, then start searching for missing number 
         //starting at 1. O(n) in time and space.
-        static internal int findInteger(int[] input)
+        static internal int FindInteger(int[] input)
         {
             Array.Sort(input);
             int flag = 1;

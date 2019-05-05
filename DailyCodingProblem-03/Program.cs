@@ -31,7 +31,7 @@ namespace DailyCodingProblem_03
             string[] words = input.Split(' ');
 
             BinaryTree tree = new BinaryTree(words);
-            string result = tree.serialize();
+            string result = tree.Serialize();
 
             Console.WriteLine(result);
             Console.ReadLine();
