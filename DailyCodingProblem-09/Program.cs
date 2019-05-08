@@ -35,7 +35,8 @@ namespace DailyCodingProblem_09
                 {
                     break;
                 }
-                else if (i + 3 >= input.Length)
+                else if (i + 3 >= input.Length ||
+                    input[i + 2] > input[i + 3])
                 {
                     i += 1;
                 }
@@ -43,10 +44,7 @@ namespace DailyCodingProblem_09
                 {
                     i += 2;
                 }
-                else if (input[i + 2] > input[i + 3])
-                {
-                    i += 1;
-                }
+
             }
 
             for (int i = 1; i < input.Length; i++)
@@ -57,17 +55,14 @@ namespace DailyCodingProblem_09
                 {
                     break;
                 }
-                else if (i + 3 >= input.Length)
+                else if (i + 3 >= input.Length ||
+                    input[i + 2] > input[i + 3])
                 {
                     i += 1;
                 }
                 else if (input[i + 3] > input[i + 2])
                 {
                     i += 2;
-                }
-                else if (input[i + 2] > input[i + 3])
-                {
-                    i += 1;
                 }
             }
 
