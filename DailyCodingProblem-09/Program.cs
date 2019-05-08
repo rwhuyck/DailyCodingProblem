@@ -41,11 +41,11 @@ namespace DailyCodingProblem_09
                 }
                 else if (input[i + 3] > input[i + 2])
                 {
-                    i = i + 2;
+                    i += 2;
                 }
                 else if (input[i + 2] > input[i + 3])
                 {
-                    i = i + 1;
+                    i += 1;
                 }
             }
 
@@ -63,11 +63,11 @@ namespace DailyCodingProblem_09
                 }
                 else if (input[i + 3] > input[i + 2])
                 {
-                    i = i + 2;
+                    i += 2;
                 }
                 else if (input[i + 2] > input[i + 3])
                 {
-                    i = i + 1;
+                    i += 1;
                 }
             }
 
