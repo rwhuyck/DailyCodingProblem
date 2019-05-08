@@ -48,6 +48,7 @@ namespace DailyCodingProblem_09
                     i = i + 1;
                 }
             }
+
             for (int i = 1; i < input.Length; i++)
             {
                 sum2 += input[i];
@@ -58,15 +59,15 @@ namespace DailyCodingProblem_09
                 }
                 else if (i + 3 >= input.Length)
                 {
-                    i += 2;
+                    i += 1;
                 }
                 else if (input[i + 3] > input[i + 2])
                 {
-                    i = i + 3;
+                    i = i + 2;
                 }
                 else if (input[i + 2] > input[i + 3])
                 {
-                    i = i + 2;
+                    i = i + 1;
                 }
             }
 
