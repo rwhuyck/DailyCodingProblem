@@ -48,7 +48,7 @@ namespace DailyCodingProblem_12
             int result = 0;
             if (stairs == 0)
             {
-                result++; // can be 0, just depends on if you could 0 stairs as real
+                result++; // can be 0, just depends on if you count 0 stairs as real
             }
             else if (stairs == 1)
             {
