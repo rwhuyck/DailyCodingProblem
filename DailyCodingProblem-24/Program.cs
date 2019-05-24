@@ -108,7 +108,6 @@ namespace DailyCodingProblem_24
         {
             bool locked = false;
             
-
             while (tree.parent != null)
             {
                 if (tree.parent.isLocked)
