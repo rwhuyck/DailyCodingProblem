@@ -53,6 +53,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DailyCodingProblem-24", "Da
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DailyCodingProblem-25", "DailyCodingProblem-25\DailyCodingProblem-25.csproj", "{D5AB3CE0-D7E0-4F45-8591-D2BE4D6F703A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DailyCodingProblem-26", "DailyCodingProblem-26\DailyCodingProblem-26.csproj", "{B6E154FE-839D-4F7E-B1D6-CC8D77B3130F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -159,6 +161,10 @@ Global
 		{D5AB3CE0-D7E0-4F45-8591-D2BE4D6F703A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5AB3CE0-D7E0-4F45-8591-D2BE4D6F703A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D5AB3CE0-D7E0-4F45-8591-D2BE4D6F703A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6E154FE-839D-4F7E-B1D6-CC8D77B3130F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6E154FE-839D-4F7E-B1D6-CC8D77B3130F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6E154FE-839D-4F7E-B1D6-CC8D77B3130F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6E154FE-839D-4F7E-B1D6-CC8D77B3130F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
