@@ -82,6 +82,10 @@ namespace DailyCodingProblem_29
                     }
                     number = "";
                 }
+                else
+                {
+                    decoded += input[i];
+                }
             }
 
             return decoded;
