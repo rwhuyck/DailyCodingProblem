@@ -30,16 +30,32 @@ namespace DailyCodingProblem_30
             so we can trap 8 units of water.
             */
 
-            int[] input = { 3, 0, 1, 3, 0, 5 };
+            int[] input = { 3, 0, 1, 3, 0, 5 }; //8
+            int[] input2 = { 5, 1, 6, 3, 2, 4 }; //7
+            int[] input3 = { 3, 0, 2, 7, 0, 5 }; //9
             Console.WriteLine(volume(input));
+            Console.WriteLine(volume(input2));
+            Console.WriteLine(volume(input3));
 
             Console.ReadLine();
         }
 
         private static int volume(int[] input)
         {
-            int limit = heightLimit(input);
+            //int limit = edgeLimit(input);
+            int limit;
+            int firstEdge = input[0];
+            int secondEdge = input[input.Length - 1];
             int volume = 0;
+
+            if (firstEdge <= secondEdge)
+            {
+                limit = firstEdge;
+            }
+            else
+            {
+                limit = secondEdge;
+            }           
 
             for (int i = 0; i < input.Length; i++)
             {
@@ -47,23 +63,28 @@ namespace DailyCodingProblem_30
                 {
                     volume += limit - input[i];
                 }
+                else if (input[i] > limit && i != 0 && 
+                    secondEdge < firstEdge)
+                {
+                    volume = 0;
+
+                    for (int j = 0; j < i; j++)
+                    {
+                        if (input[j] < firstEdge)
+                        {
+                            volume += firstEdge - input[j];
+                        }
+                    }
+                }
+                else if (input[i] > limit &&
+                    secondEdge > firstEdge &&
+                    input[i] > secondEdge)
+                {
+                    limit = secondEdge;
+                }
             }
 
             return volume;
-        }
-
-        private static int heightLimit(int[] input)
-        {
-            int height;
-
-            if (input[0] <= input[input.Length - 1])
-            {
-                return height = input[0];
-            }
-            else
-            {
-                return height = input[input.Length - 1];
-            }
         }
     }
 }
