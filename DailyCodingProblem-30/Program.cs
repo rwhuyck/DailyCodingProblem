@@ -33,54 +33,66 @@ namespace DailyCodingProblem_30
             int[] input = { 3, 0, 1, 3, 0, 5 }; //8
             int[] input2 = { 5, 1, 6, 3, 2, 4 }; //7
             int[] input3 = { 3, 0, 2, 7, 0, 5 }; //9
-            Console.WriteLine(volume(input));
-            Console.WriteLine(volume(input2));
-            Console.WriteLine(volume(input3));
+            int[] input4 = { 2, 0, 6, 2, 4, 1, 7, 1, 2 }; //14
+            int[] input5 = { 7, 6, 4, 2, 1, 0 }; //0
+            int[] input6 = { 0, 2, 5, 7, 8, 9 }; //0
+            Console.WriteLine(totalVolume(input));
+            Console.WriteLine(totalVolume(input2));
+            Console.WriteLine(totalVolume(input3));
+            Console.WriteLine(totalVolume(input4));
+            Console.WriteLine(totalVolume(input5));
+            Console.WriteLine(totalVolume(input6));
 
             Console.ReadLine();
         }
 
-        private static int volume(int[] input)
+        private static int totalVolume(int[] input)
         {
-            int limit;
-            int firstEdge = input[0];
-            int secondEdge = input[input.Length - 1];
+            int max = 0;
             int volume = 0;
+            int previousVolume = 0;
 
-            if (firstEdge <= secondEdge)
+            for (int i = 0; i < input.Length; i++)
             {
-                limit = firstEdge;
+                if (i > 0)
+                {
+                    if (input[i] > input[i - 1] &&
+                        input[i] < input[max])
+                    {
+                        volume = localVolume(input, max, i);
+                    }
+                    else if (input[i] > input[max])
+                    {
+                        volume = localVolume(input, max, i);
+                        max = i;
+                        previousVolume += volume;
+                        volume = 0;
+                    }
+                }
+            }
+            return volume + previousVolume;
+        }
+
+        private static int localVolume(int[] input, int start, int end)
+        {
+            int volume = 0;
+            int limit = 0;
+
+            if (input[start] >= input[end])
+            {
+                limit = input[end];
             }
             else
             {
-                limit = secondEdge;
-            }           
+                limit = input[start];
+            }
 
-            for (int i = 0; i < input.Length; i++)
+            for (int i = start + 1; i < end; i++)
             {
                 if (input[i] < limit)
                 {
                     volume += limit - input[i];
-                }
-                else if (input[i] > limit && i != 0 && 
-                    secondEdge < firstEdge)
-                {
-                    volume = 0;
-
-                    for (int j = 0; j < i; j++)
-                    {
-                        if (input[j] < firstEdge)
-                        {
-                            volume += firstEdge - input[j];
-                        }
-                    }
-                }
-                else if (input[i] > limit &&
-                    secondEdge > firstEdge &&
-                    input[i] > secondEdge)
-                {
-                    limit = secondEdge;
-                }
+                }               
             }
 
             return volume;
