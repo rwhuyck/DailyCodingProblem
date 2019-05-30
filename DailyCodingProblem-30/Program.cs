@@ -42,7 +42,6 @@ namespace DailyCodingProblem_30
 
         private static int volume(int[] input)
         {
-            //int limit = edgeLimit(input);
             int limit;
             int firstEdge = input[0];
             int secondEdge = input[input.Length - 1];
