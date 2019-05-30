@@ -36,12 +36,16 @@ namespace DailyCodingProblem_30
             int[] input4 = { 2, 0, 6, 2, 4, 1, 7, 1, 2 }; //14
             int[] input5 = { 7, 6, 4, 2, 1, 0 }; //0
             int[] input6 = { 0, 2, 5, 7, 8, 9 }; //0
+            int[] input7 = { 6, 2, 4, 1, 3 }; //4
+            int[] input8 = { 3, 1, 4, 2, 6 }; //4
             Console.WriteLine(totalVolume(input));
             Console.WriteLine(totalVolume(input2));
             Console.WriteLine(totalVolume(input3));
             Console.WriteLine(totalVolume(input4));
             Console.WriteLine(totalVolume(input5));
             Console.WriteLine(totalVolume(input6));
+            Console.WriteLine(totalVolume(input7));
+            Console.WriteLine(totalVolume(input8));
 
             Console.ReadLine();
         }
@@ -49,34 +53,49 @@ namespace DailyCodingProblem_30
         private static int totalVolume(int[] input)
         {
             int max = 0;
+            int localMax = 0;
             int volume = 0;
-            int previousVolume = 0;
+            int segmentVolume = 0;
 
             for (int i = 0; i < input.Length; i++)
             {
                 if (i > 0)
                 {
-                    if (input[i] > input[i - 1] &&
+                    //Save the volume for the previous self-contained edge segment,
+                    //and restart volume counting
+                    if (input[i] >= input[max])
+                    {
+                        volume = localVolume(input, max, i);
+                        segmentVolume += volume;
+                        volume = 0;
+                        max = i;
+                        localMax = i;
+                    }
+                    //Move to the next local "descending" peak, and build volume
+                    else if (input[i] > input[i - 1] &&
+                        input[i] < input[localMax])
+                    {
+                        volume += localVolume(input, localMax, i);
+                        localMax = i;
+                    }
+                    //Aggregate volume for local self-contained area, restarts
+                    //volume building for any incoming "descending" peaks
+                    else if (input[i] > input[localMax] &&
                         input[i] < input[max])
                     {
                         volume = localVolume(input, max, i);
-                    }
-                    else if (input[i] > input[max])
-                    {
-                        volume = localVolume(input, max, i);
-                        max = i;
-                        previousVolume += volume;
-                        volume = 0;
-                    }
+                        localMax = i;
+                    }  
                 }
             }
-            return volume + previousVolume;
+
+            return volume + segmentVolume;
         }
 
         private static int localVolume(int[] input, int start, int end)
         {
             int volume = 0;
-            int limit = 0;
+            int limit;
 
             if (input[start] >= input[end])
             {
