@@ -61,7 +61,7 @@ namespace DailyCodingProblem_30
             {
                 if (i > 0)
                 {
-                    //Save the volume for the previous self-contained edge segment,
+                    //Save the volume of the fully contained, edge-including segment,
                     //and restart volume counting
                     if (input[i] >= input[max])
                     {
@@ -78,7 +78,7 @@ namespace DailyCodingProblem_30
                         volume += localVolume(input, localMax, i);
                         localMax = i;
                     }
-                    //Aggregate volume for local self-contained area
+                    //Aggregate volume of locally contained area
                     else if (input[i] > input[localMax] &&
                         input[i] < input[max])
                     {
