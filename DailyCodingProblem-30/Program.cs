@@ -78,8 +78,7 @@ namespace DailyCodingProblem_30
                         volume += localVolume(input, localMax, i);
                         localMax = i;
                     }
-                    //Aggregate volume for local self-contained area, restarts
-                    //volume building for any incoming "descending" peaks
+                    //Aggregate volume for local self-contained area
                     else if (input[i] > input[localMax] &&
                         input[i] < input[max])
                     {
