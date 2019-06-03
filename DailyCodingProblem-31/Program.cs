@@ -35,7 +35,7 @@ namespace DailyCodingProblem31
 
         static int editDistance(string input, string output)
         {
-            int j = 0, lessChars = 0;
+            int j = 0;
             int i;
 
             //Difference in lengths means we already know number of inserts/deletions needed
@@ -50,7 +50,7 @@ namespace DailyCodingProblem31
                     {
                         j++;
                     }
-                    //If one char is off, but next is correct, tally diff and move index
+                    //If one char is off, but next is correct, tally diff and continue
                     else if (i + 1 < input.Length && j + 1 < output.Length &&
                         input[i + 1] == output[j + 1])
                     {
@@ -73,26 +73,15 @@ namespace DailyCodingProblem31
                         
                         j = output.IndexOf(input[i], j) + 1;
                     }
+                    //Catch all other one char differences
+                    //e.g. near, but not in, insert/deletion zones
                     else
                     {
                         distance++;
                         j++;
                     }
                 }
-                else
-                {
-                    lessChars = Math.Abs(input.Length - j);
-                }
             }
-
-            //if (i != (j + 1) && j < output.Length)
-            //{
-            //    distance += Math.Abs(output.Length - i);
-            //}
-            //else if (lessChars < input.Length && lessChars > 0)
-            //{
-            //    distance += Math.Abs(input.Length - lessChars);
-            //}
 
             return distance;
         }
