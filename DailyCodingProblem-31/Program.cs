@@ -69,8 +69,7 @@ namespace DailyCodingProblem31
                     else if (i + 1 < input.Length && 
                         !input.Contains(output[j]) &&
                         output[output.IndexOf(input[i], j) + 1] == input[i + 1])
-                    {
-                        
+                    { 
                         j = output.IndexOf(input[i], j) + 1;
                     }
                     //Catch all other one char differences
