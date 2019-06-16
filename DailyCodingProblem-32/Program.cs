@@ -52,12 +52,16 @@ namespace DailyCodingProblem_32
             bool isArbitrage = false;
             int counter = 0;
 
+            // Jump between each currency based on the largest possible trade
             for (int i = firstCurrency; i < exchange.GetLength(0); i++)
             {
                 int maxIndex = 0;
                 decimal max = 0.0m;
                 int lastMaxIndex = 0;
 
+                // Find the max trade for the current currency and save that target
+                // currency as the index. Save last best currence as last index, 
+                // in case of repeat to avoid cyclic trades
                 for (int j = 0; j < exchange.GetLength(1); j++)
                 {
                     if (exchange[i, j] != 1.0m && max < exchange[i,j])
@@ -68,6 +72,8 @@ namespace DailyCodingProblem_32
                     }
                 }
 
+                // Check if next trade goes to original currency and if total 
+                // money has now exceeded the starting money (profit)
                 if (maxIndex == firstCurrency && 
                     currentCash * exchange[i, maxIndex] > startingMoney)
                 {
@@ -81,11 +87,14 @@ namespace DailyCodingProblem_32
                         i = maxIndex - 1;
                         currentCash *= max;
                     }
+                    // Jump to second best trade if best trade is cyclical
                     else if (!pathTally.Contains(lastMaxIndex))
                     {
                         currentCash *= exchange[i, lastMaxIndex];
                         i = lastMaxIndex - 1;
                     }
+                    // If no trades left, trade back to original currency and 
+                    // see if profit has been made
                     else
                     {
                         currentCash *= exchange[i, firstCurrency];
@@ -98,6 +107,8 @@ namespace DailyCodingProblem_32
                     }
                 }
 
+                // Track each currency that has been traded, to avoid 
+                // getting stuck in cyclical trades
                 pathTally[counter] = i + 1;
                 counter++;
             }
