@@ -37,7 +37,7 @@ namespace DailyCodingProblem_33
 
             for (int i = 0; i < input.Length; i++)
             {
-                Console.WriteLine(thisMedian.FindMedian(input[i]));
+                Console.WriteLine(thisMedian.RollingMedian(input[i]));
             }
 
             Console.ReadLine();
@@ -48,7 +48,7 @@ namespace DailyCodingProblem_33
     {
         private int[] buffer { get; set; }
 
-        public float FindMedian(int input)
+        public float RollingMedian(int input)
         {
             float result;
             int index;
